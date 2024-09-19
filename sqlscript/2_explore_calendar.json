@@ -1,0 +1,20 @@
+{
+	"name": "2_explore_calendar",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/discovery"
+		},
+		"content": {
+			"query": "USE nyc_taxi_discovery;\n\nSELECT * \n    FROM OPENROWSET(\n        BULK 'calendario.csv',\n        DATA_SOURCE = 'nyc_taxi_data_raw',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) as cal\nORDER by [año], [dia_del_año] asc;\n\nEXEC sp_describe_first_result_set N'SELECT * \n    FROM OPENROWSET(\n        BULK ''calendario.csv'',\n        DATA_SOURCE = ''nyc_taxi_data_raw'',\n        FORMAT = ''CSV'',\n        PARSER_VERSION = ''2.0'',\n        HEADER_ROW = TRUE\n    ) as cal\nORDER by [año], [dia_del_año] asc'\n\n-- WE SHOULD ADJUST MAX_LENGHT WITH\nSELECT * \n    FROM OPENROWSET(\n        BULK 'calendario.csv',\n        DATA_SOURCE = 'nyc_taxi_data_raw',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        HEADER_ROW = TRUE\n    ) \nWITH (\n        clave_fecha     INT,\n        fecha           DATE,\n        año             SMALLINT,\n        mes             TINYINT,\n        día             TINYINT,\n        nombre_día      VARCHAR(10),\n        día_del_año     SMALLINT,\n        semana_del_mes  TINYINT,\n        semana_del_año  TINYINT,\n        nombre_mes      VARCHAR(10),\n        año_mes         INT,\n        año_semana      INT\n    ) as cal\nORDER by [año], [dia_del_año] asc;\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_discovery",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

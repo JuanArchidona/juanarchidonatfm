@@ -1,0 +1,20 @@
+{
+	"name": "11_data_quality_checks",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/discovery"
+		},
+		"content": {
+			"query": "USE nyc_taxi_discovery;\n\n-- IDENTIFY ANY DATA QUALITY ISSUES IN TRIP TOTAL AMOUNT\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'trip_data_green_parquet/year=2020/month=01/',\n        FORMAT = 'PARQUET',\n        DATA_SOURCE = 'nyc_taxi_data_raw'\n    ) AS [result]\n\n-- MIN, MAX, AVG AND COUNTING\nSELECT\n    MIN(total_amount) AS min_total_amount,\n    MAX(total_amount) AS max_total_amount,\n    AVG(total_amount) AS avg_total_amount,\n    COUNT(1) AS total_number_of_records, -- IF THE ARE NO NULLS, BOTH COUNTS WILL BE THE SAME\n    COUNT(total_amount) AS not_null_total_number_of_records\nFROM\n    OPENROWSET(\n        BULK 'trip_data_green_parquet/year=2020/month=01/',\n        FORMAT = 'PARQUET',\n        DATA_SOURCE = 'nyc_taxi_data_raw'\n    ) AS [result]\n\n\n-- LOOKING FOR PROBLEMS WITH TOTAL_AMOUNT\nSELECT\n    payment_type, COUNT(1) AS number_of_records\nFROM\n    OPENROWSET(\n        BULK 'trip_data_green_parquet/year=2020/month=01/',\n        FORMAT = 'PARQUET',\n        DATA_SOURCE = 'nyc_taxi_data_raw'\n    ) AS [result]\n-- WHERE total_amount < 0\nGROUP BY payment_type\nORDER BY payment_type; -- WE OBTAIN MANY DATA WITH PAYMENT_TYPE NULL VALUES\n-- LOS VALORES NULOS SE DEBERÍAN IMPUTAR AL TIPO DE PAGO 5 (TIPO DE PAGO DESCONOCIDO)\n\n\n\n\n\n\n\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_discovery",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

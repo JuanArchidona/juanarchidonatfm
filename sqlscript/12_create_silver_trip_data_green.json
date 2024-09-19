@@ -1,0 +1,20 @@
+{
+	"name": "12_create_silver_trip_data_green",
+	"properties": {
+		"folder": {
+			"name": "nyc_taxi/ldw"
+		},
+		"content": {
+			"query": "USE nyc_taxi_ldw;\nGO \n\n\nEXEC silver.usp_silver_trip_data_green '2020', '01';\nEXEC silver.usp_silver_trip_data_green '2020', '02';\nEXEC silver.usp_silver_trip_data_green '2020', '03';\nEXEC silver.usp_silver_trip_data_green '2020', '04';\nEXEC silver.usp_silver_trip_data_green '2020', '05';\nEXEC silver.usp_silver_trip_data_green '2020', '06';\nEXEC silver.usp_silver_trip_data_green '2020', '07';\nEXEC silver.usp_silver_trip_data_green '2020', '08';\nEXEC silver.usp_silver_trip_data_green '2020', '09';\nEXEC silver.usp_silver_trip_data_green '2020', '10';\nEXEC silver.usp_silver_trip_data_green '2020', '11';\nEXEC silver.usp_silver_trip_data_green '2020', '12';\n\nEXEC silver.usp_silver_trip_data_green '2021', '01';\nEXEC silver.usp_silver_trip_data_green '2021', '02';\nEXEC silver.usp_silver_trip_data_green '2021', '03';\nEXEC silver.usp_silver_trip_data_green '2021', '04';\nEXEC silver.usp_silver_trip_data_green '2021', '05';\nEXEC silver.usp_silver_trip_data_green '2021', '06';\nEXEC silver.usp_silver_trip_data_green '2021', '07';\nEXEC silver.usp_silver_trip_data_green '2021', '08';\nEXEC silver.usp_silver_trip_data_green '2021', '09';\nEXEC silver.usp_silver_trip_data_green '2021', '10';\nEXEC silver.usp_silver_trip_data_green '2021', '11';\nEXEC silver.usp_silver_trip_data_green '2021', '12';\n\nEXEC silver.usp_silver_trip_data_green '2022', '01';\nEXEC silver.usp_silver_trip_data_green '2022', '02';\nEXEC silver.usp_silver_trip_data_green '2022', '03';\nEXEC silver.usp_silver_trip_data_green '2022', '04';\nEXEC silver.usp_silver_trip_data_green '2022', '05';\nEXEC silver.usp_silver_trip_data_green '2022', '06';\nEXEC silver.usp_silver_trip_data_green '2022', '07';\nEXEC silver.usp_silver_trip_data_green '2022', '08';\nEXEC silver.usp_silver_trip_data_green '2022', '09';\nEXEC silver.usp_silver_trip_data_green '2022', '10';\nEXEC silver.usp_silver_trip_data_green '2022', '11';\nEXEC silver.usp_silver_trip_data_green '2022', '12';\n\nEXEC silver.usp_silver_trip_data_green '2023', '01';\nEXEC silver.usp_silver_trip_data_green '2023', '02';\nEXEC silver.usp_silver_trip_data_green '2023', '03';\nEXEC silver.usp_silver_trip_data_green '2023', '04';\nEXEC silver.usp_silver_trip_data_green '2023', '05';\nEXEC silver.usp_silver_trip_data_green '2023', '06';\nEXEC silver.usp_silver_trip_data_green '2023', '07';\nEXEC silver.usp_silver_trip_data_green '2023', '08';\nEXEC silver.usp_silver_trip_data_green '2023', '09';\nEXEC silver.usp_silver_trip_data_green '2023', '10';\nEXEC silver.usp_silver_trip_data_green '2023', '11';\nEXEC silver.usp_silver_trip_data_green '2023', '12';\n\nEXEC silver.usp_silver_trip_data_green '2024', '01';\nEXEC silver.usp_silver_trip_data_green '2024', '02';\nEXEC silver.usp_silver_trip_data_green '2024', '03';\nEXEC silver.usp_silver_trip_data_green '2024', '04';\nEXEC silver.usp_silver_trip_data_green '2024', '05';\nEXEC silver.usp_silver_trip_data_green '2024', '06';\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_ldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
