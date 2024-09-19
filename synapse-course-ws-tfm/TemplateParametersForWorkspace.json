@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "synapse-course-ws-tfm"
+		},
+		"GitHub_credential": {
+			"value": ""
+		},
+		"synapse-course-ws-tfm-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:synapse-course-ws-tfm.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"GitHub_properties_typeProperties_username": {
+			"value": "JuanArchidona"
+		},
+		"bing-covid-19-data_sasUri": {
+			"value": ""
+		},
+		"ls_serverless_sql_pool_db_nyc_taxi_ldw_properties_typeProperties_server": {
+			"value": "tcp:synapse-course-ws-tfm-ondemand.sql.azuresynapse.net,1433"
+		},
+		"ls_serverless_sql_pool_db_nyc_taxi_ldw_properties_typeProperties_database": {
+			"value": "nyc_taxi_ldw"
+		},
+		"ls_synapsecoursedltfm_properties_typeProperties_url": {
+			"value": "https://synapsecoursedltfm.dfs.core.windows.net/"
+		},
+		"synapse-course-ws-tfm-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://synapsecoursedltfm.dfs.core.windows.net"
+		}
+	}
+}
